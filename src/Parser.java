@@ -1,11 +1,15 @@
-//import com.google.gson.Gson;
+import com.google.gson.Gson;
+
+import java.lang.reflect.Array;
+import java.util.List;
 
 public class Parser {
 
-    //public static Joke parse(String jsonText) {
-     //   Gson gson = new Gson();
-     //   Joke joke = gson.fromJson(jsonText, Joke.class);
-     //   return joke;
-  //  }
 
+    public static String parse(String jsonText) {
+        Gson gson = new Gson();
+        Response Response = gson.fromJson(jsonText, Response.class);
+        List<Value>  Values = Response.getValue();
+        return Value.getJoke();
+    }
 }

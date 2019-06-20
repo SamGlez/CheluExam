@@ -1,9 +1,12 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class Controller {
 
     private Model model;
     private View view;
+    private ModelBuilder ModelBuilder;
+    private Response response;
+
 
     public Controller(Model m, View v) {
         model = m;
@@ -33,9 +36,11 @@ public class Controller {
     }
 
     private void generateJoke() {
-       // Connection connection = new Connection(model.getFirstName(), model.getLastName());
-      //  String jsonData = connection.request();
-      //  Joke joke = Parser.parse(jsonData);
+        Connection connection = new Connection(model.getFirstName(), model.getLastName());
+        String jsonData = connection.request();
+        System.out.println(jsonData);
+        //String joke = Parser.parse(jsonData);
+       // System.out.println(joke);
         JOptionPane.showMessageDialog(null, "Hello " + model.getFirstName() +  model.getLastName() + ", You built the hospital you were born in.", "Info", JOptionPane.INFORMATION_MESSAGE);
     }
 
